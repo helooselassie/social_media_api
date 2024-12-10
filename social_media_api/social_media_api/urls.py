@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from . import views
 
 
 
@@ -25,5 +26,7 @@ urlpatterns = [
     # ... previous code remains the same
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),    
+    path('auth/login', views.LoginView.as_view(), name='login'),
+    path('api/', include('social_media_api.urls')),  # Make sure the 'auth' route is inside 'your_app.urls'
 ]
 
