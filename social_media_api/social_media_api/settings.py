@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Application definition
 
@@ -39,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework_simplejwt',
     'rest_framework',
+    'rest_framework.authtoken',
     'api',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +128,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 APPEND_SLASH = False  # Ensures URLs end with a slash
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
